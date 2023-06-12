@@ -1,4 +1,5 @@
 import './globals.css'
+import { Providers } from '../app/redux/provider';
 
 export const metadata = {
   title: 'Redux Toolkit | Hari Prasad',
@@ -12,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><Providers>{children}</Providers></body>
     </html>
   )
 }
