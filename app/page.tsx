@@ -1,9 +1,31 @@
-import Image from 'next/image'
+"use client"
+import { useDispatch } from "react-redux";
+import { reset } from "./redux/store";
+
+import MoviePlaylist from "./components/MoviePlaylist";
+import SongPlaylist from "./components/SongPlaylist";
+import Button from "./components/Button";
+
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const handleResetClick = () => {
+    dispatch(reset())
+
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Hone Page</h1>
-    </main>
-  )
+    <div className="container is-fluid">
+      <Button success
+      onClick={() => handleResetClick()} 
+      className="button is-danger">
+        Reset Both Playlists
+      </Button>
+      <h1>Home Page</h1>
+      <hr />
+      <MoviePlaylist />
+      <hr />
+      <SongPlaylist />
+    </div>
+  );
 }
